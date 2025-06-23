@@ -9,10 +9,6 @@ class ToastmasterMeeting:
     def __init__(self):
         pass
     
-    # adding a new speaker (key)
-    def new_speaker(self, speaker):
-        self.table[speaker]
-   
    # Print a table of the current recordings TODO: in a pretty format
     def print_results(self):
         print("Raw table dict data")
@@ -23,6 +19,7 @@ class ToastmasterMeeting:
             print(speaker)
             self.insert_player_results(tab, speaker)
         print(tab)
+        return tab
 
     def insert_player_results(self, table, speaker):
         # construct speaker's count for each filler word and add that speakers results for the session
@@ -71,25 +68,31 @@ class ToastmasterMeeting:
         self.delete_table()
         self.clear_filler_word_list()
 
+    def add_speaker(self, speaker):
+        if speaker not in self.table:
+            self.table[speaker]={}
+            
+
+
 # testing
 # create test objects
-testsession = ToastmasterMeeting()
-testsession.print_results()
-testsession.log_input("Daire", "Um")
-testsession.log_input("Daire", "Um")
-testsession.log_input("Daire", "oh")
-testsession.log_input("Judy", "Oh")
-testsession.log_input("Karl", "Y'know")
-testsession.print_results()
-testsession.clear_data()
+#testsession = ToastmasterMeeting()
+#testsession.print_results()
+#testsession.log_input("Daire", "Um")
+#testsession.log_input("Daire", "Um")
+#3testsession.log_input("Daire", "oh")
+#testsession.log_input("Judy", "Oh")
+#testsession.log_input("Karl", "Y'know")
+#testsession.print_results()
+#testsession.clear_data()
 
-print(testsession.filler_word_set)
-print(testsession.table)
+#print(testsession.filler_word_set)
+#print(testsession.table)
 
-testsession.log_input("Daire", "Um")
-testsession.log_input("Daire", "Um")
-testsession.log_input("Daire", "oh")
-testsession.print_results()
+#testsession.log_input("Daire", "Um")
+#testsession.log_input("Daire", "Um")
+#testsession.log_input("Daire", "oh")
+#t#estsession.print_results()
 
 # instructions to use interactivly
 # NOTE to use prettytable need to activate .venv and install it
