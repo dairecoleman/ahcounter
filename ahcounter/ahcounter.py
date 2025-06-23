@@ -68,6 +68,12 @@ class ToastmasterMeeting:
         self.delete_table()
         self.clear_filler_word_list()
 
+    def add_speaker(self, speaker):
+        if speaker not in self.table:
+            self.table[speaker]={}
+            
+
+
 # testing
 # create test objects
 #testsession = ToastmasterMeeting()
