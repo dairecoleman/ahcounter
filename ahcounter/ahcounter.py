@@ -71,7 +71,10 @@ class ToastmasterMeeting:
     def add_speaker(self, speaker):
         if speaker not in self.table:
             self.table[speaker]={}
-            
+
+    def return_speakers(self):
+        list_of_speakers=self.table.keys()
+        return list_of_speakers
 
 
 # testing

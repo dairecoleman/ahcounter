@@ -47,6 +47,30 @@ with col3:
         session.clear_data()
         session.print_results()
 
+st.subheader("Enter Record")
+col4, col5 = st.columns(2)
+
+with col4:
+    if "active_speaker" not in st.session_state:
+        st.session_state.active_speaker = None
+    
+    st.write("Current Speaker(s)")
+
+    for x in session.return_speakers():
+        if st.button(x):
+            st.session_state.active_speaker = x
+    
+    if st.session_state.active_speaker:
+        st.write(f"active speaker: :green[{st.session_state.active_speaker}] :sunglasses:")
+
+with col5:
+    
+    for x in session.filler_word_set:
+        if st.button(x) and st.session_state.active_speaker:
+            session.log_input(st.session_state.active_speaker, x)
+            st.write(f"logged {st.session_state.active_speaker}, {x}")
+
+
 
 st.title("Ah Counter's Report Dashboard")
 st.write(session.print_results())
