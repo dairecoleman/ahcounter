@@ -3,7 +3,7 @@ from prettytable import PrettyTable
 # class/object that contains the information from a toastmaster meeting about the speakers, their filler words and the frequency of filler words
 class ToastmasterMeeting:
     table={}
-    filler_word_set = set()
+    filler_word_set = {"Ah", "Eh", "Um", "And"}
     
     # init function that starts the object that will hold meeting data
     def __init__(self):
@@ -66,7 +66,7 @@ class ToastmasterMeeting:
     def clear_data(self):
         print("clearing session data")
         self.delete_table()
-        self.clear_filler_word_list()
+        #self.clear_filler_word_list()
 
     def add_speaker(self, speaker):
         if speaker not in self.table:

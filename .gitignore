@@ -8,3 +8,4 @@ __pycache__/
 
 # Swap files
 *.swp
+ahcounter/__pycache__/ahcounter.cpython-312.pyc
