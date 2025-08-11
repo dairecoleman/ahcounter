@@ -4,14 +4,14 @@ import pytest
 def test_ToastmasterMeeting_creation():
     test_instance = ToastmasterMeeting()
     assert test_instance.table == {}
-    assert test_instance.filler_word_set == set()
+    assert test_instance.filler_word_set == {"Ah", "Eh", "Um", "And"}
     assert isinstance(test_instance, ToastmasterMeeting)
 
 @pytest.fixture
 def fresh_meeting():
     # Always return a fresh instance with cleared class-level data
     ToastmasterMeeting.table = {}
-    ToastmasterMeeting.filler_word_set = set()
+    ToastmasterMeeting.filler_word_set = {"Ah", "Eh", "Um", "And"}
     return ToastmasterMeeting()
 
 #def test_session():
@@ -57,7 +57,7 @@ def test_clear_filler_word_list(fresh_meeting):
 
 def test_clear_data(fresh_meeting):
     fresh_meeting.log_input("Daire", "Um")
-    fresh_meeting.log_input("Judy", "Oh")
+    fresh_meeting.log_input("Judy", "Ah")
     fresh_meeting.clear_data()
     assert fresh_meeting.table == {}
-    assert fresh_meeting.filler_word_set == set()
+    assert fresh_meeting.filler_word_set == {"Ah", "Eh", "Um", "And"}
