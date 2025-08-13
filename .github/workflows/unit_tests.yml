@@ -1,0 +1,14 @@
+name: Unit Testing
+on:
+  workflow_dispatch:
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository code
+        uses: actions/checkout@v4
+      
+      - name: Source venv & Run pytests
+        run: |
+          source .venv/bin/activate
+          PYTHONPATH=/home/daire/python_practice/ahcounter pytest -v tests
